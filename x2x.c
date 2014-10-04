@@ -1318,7 +1318,8 @@ PDPYINFO pDpyInfo;
       XWidthOfScreen(XScreenOfDisplay(toDpy, screenNum));
     heights[screenNum] = toHeight =
       XHeightOfScreen(XScreenOfDisplay(toDpy, screenNum));
-
+      debug("to width %d", toWidth);
+      debug("to height %d", toHeight);
     pDpyInfo->xTables[screenNum] = xTable =
       (short *)xmalloc(sizeof(short) * fromWidth);
     pDpyInfo->yTables[screenNum] = yTable =
@@ -2258,7 +2259,7 @@ XSelectionEvent *pEv;
 
 #define DEFAULT_PROP_SIZE 1024L
 
-  debug("selection notify\n");
+  //debug("selection notify\n");
 
   if (dpy == pDpyInfo->fromDpy) {
     utf8string = pDpyInfo->fromDpyUtf8String;

@@ -116,7 +116,7 @@ extern Status DPMSForceLevel(Display *, unsigned short);
 
 
 
-/*#define DEBUG*/
+#define DEBUG
 
 #ifndef MIN
 #define MIN(x,y) (((x) < (y)) ? (x) : (y))

@@ -2170,7 +2170,7 @@ XSelectionRequestEvent *pEv;
   } else {
     utf8string = pDpyInfo->toDpyUtf8String;
   }
-  debug("pDpyXtra utf8string  %s",utf8string);
+  //debug("pDpyXtra utf8string  %s",utf8string);
     //debug("selection request\n");
 
   /* bribe me to support more general selection requests,

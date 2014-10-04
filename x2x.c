@@ -1318,8 +1318,8 @@ PDPYINFO pDpyInfo;
       XWidthOfScreen(XScreenOfDisplay(toDpy, screenNum));
     heights[screenNum] = toHeight =
       XHeightOfScreen(XScreenOfDisplay(toDpy, screenNum));
-      debug("to width %d", toWidth);
-      debug("to height %d", toHeight);
+      debug("to width %d\n", toWidth);
+      debug("to height %d\n", toHeight);
     pDpyInfo->xTables[screenNum] = xTable =
       (short *)xmalloc(sizeof(short) * fromWidth);
     pDpyInfo->yTables[screenNum] = yTable =
@@ -2170,7 +2170,7 @@ XSelectionRequestEvent *pEv;
   } else {
     utf8string = pDpyInfo->toDpyUtf8String;
   }
-
+  debug("pDpyXtra utf8string  %s",utf8string);
     //debug("selection request\n");
 
   /* bribe me to support more general selection requests,
@@ -2214,7 +2214,7 @@ XPropertyEvent *pEv;
   Atom target;
   PDPYXTRA pDpyXtra = GETDPYXTRA(dpy, pDpyInfo);
 
-  debug("property notify\n");
+  debug("property notify \n");
 
   if (pEv->atom == pDpyXtra->pingAtom) { /* acking a ping */
     pDpyXtra->pingInProg = False;
@@ -2274,6 +2274,7 @@ XSelectionEvent *pEv;
                            DEFAULT_PROP_SIZE, True, AnyPropertyType,
                            &type, &format, &nitems, &after, &prop)
         == Success) { /* got property */
+
       if ((type != None)
           && (format != None)
           && (nitems != 0)
@@ -2282,6 +2283,7 @@ XSelectionEvent *pEv;
           && (type <= XA_LAST_PREDEFINED || type == utf8string)) {
         if (after == 0L) { /* got everything */
           success = True;
+          debug("Seccess is true \n");
         } else { /* try to get everything */
           XFree(prop);
           success =

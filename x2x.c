@@ -2170,7 +2170,7 @@ XSelectionRequestEvent *pEv;
     utf8string = pDpyInfo->toDpyUtf8String;
   }
 
-    debug("selection request\n");
+    //debug("selection request\n");
 
   /* bribe me to support more general selection requests,
      or send me the code to do it. */
@@ -3455,7 +3455,7 @@ Display *dpy;
 PDPYINFO pDpyInfo;
 XSelectionRequestEvent *pEv;
 {
-  debug("selection request W\n");
+  //debug("selection request W\n");
 
   /* only do strings to PRIMARY */
   if ((pDpyInfo->winSelText == NULL) ||
